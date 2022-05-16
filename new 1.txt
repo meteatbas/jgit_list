@@ -1,0 +1,122 @@
+{
+    "instanceId": {
+        "configValueType": "STRING",
+        "configValueCount": "SINGLE",
+        "displayName": "Instance Id",
+        "defaultValueAsJson": "\"Server001\"",
+        "description": "The name of the instance. Should be unique per installation",
+        "sectionName": "General",
+        "encrypted": false,
+        "rules": "${instanceId} != null and ${instanceId}.bytes.length<255"
+    },
+    "instanceType": {
+        "configValueType": "STRING",
+        "configValueCount": "SINGLE",
+        "displayName": "Instance Type",
+        "defaultValueAsJson": "\"SERVER\"",
+        "description": "Instance Type. SERVER",
+        "sectionName": "General",
+        "encrypted": false,
+        "rules": "${instanceType} == 'SERVER' or ${instanceType} == 'AGENT' or ${instanceType} == 'BATCH' or ${instanceType} == 'ADMIN' or ${instanceType} == 'DASHBOARD' or ${instanceType} == 'RECORDER' or ${instanceType} == 'AGENT' or ${instanceType} == 'ANALYTICS' or ${instanceType} == 'CAPTURER'"
+    },
+    "managedCapturerClusterId": {
+        "configValueType": "STRING",
+        "configValueCount": "SINGLE",
+        "displayName": "Managed Capturer Cluster Id",
+        "defaultValueAsJson": null,
+        "description": "Example: Cluster001, Used in case of Alcatel-Lucent TSAPI, Server distribute RTP Flows round robin to VoiceAgent's capturer with the same ClusterId",
+        "sectionName": "General",
+        "encrypted": false,
+        "rules": "${managedCapturerClusterId} != null and ${managedCapturerClusterId}.bytes.length<255"
+    },
+    "dbConnectionInfo": {
+        "configValueType": "STRING",
+        "configValueCount": "SINGLE",
+        "displayName": "ConnectionString",
+        "defaultValueAsJson": "\"Data Source =10.10.10.10; Initial Catalog =SISDBASE;User Id=sa; Password=password\"",
+        "description": "MSSQL Connection String",
+        "sectionName": "General",
+        "encrypted": true,
+        "rules": "${dbConnectionInfo} != null and ${dbConnectionInfo}.bytes.length<255"
+    },
+    "voiceAdminHost": {
+        "configValueType": "STRING",
+        "configValueCount": "SINGLE",
+        "displayName": "VoiceAdmin Host",
+        "defaultValueAsJson": "\"127.0.0.1\"",
+        "description": "voice Admin Host",
+        "sectionName": "General",
+        "encrypted": false,
+        "rules": "${voiceAdminHost} != null and ${voiceAdminHost}.bytes.length<255"
+    },
+    "VoiceAdminPort": {
+        "configValueType": "LONG",
+        "configValueCount": "SINGLE",
+        "displayName": "VoiceAdmin Port",
+        "defaultValueAsJson": "28015",
+        "description": "voice Admin port",
+        "sectionName": "General",
+        "encrypted": false,
+        "rules": "${VoiceAdminPort} != null and ${VoiceAdminPort}>0 and ${VoiceAdminPort}<65535"
+    },
+    "voiceAdminBaseUri": {
+        "configValueType": "STRING",
+        "configValueCount": "SINGLE",
+        "displayName": "VoiceAdmin BaseUrl",
+        "defaultValueAsJson": "/",
+        "description": "voice Admin Base Url. Reserved to internal useage",
+        "sectionName": "General",
+        "encrypted": false,
+        "rules": "${voiceAdminBaseUri} == '/'"
+    },
+    "isRestartProcessManagement": {
+        "configValueType": "BOOLEAN",
+        "configValueCount": "SINGLE",
+        "displayName": "IsRestartProcessManagement",
+        "defaultValueAsJson": "false",
+        "description": "Restart All Cache, Archive, Conversation, Compression, Backup, Encryption Processes, on each config changes. You can switch the value if you think onne of those processes is stucked.",
+        "sectionName": "General",
+        "encrypted": false,
+        "rules": null
+    },
+    "isCallListeningEnabled": {
+        "configValueType": "BOOLEAN",
+        "configValueCount": "SINGLE",
+        "displayName": "is CallListening Enabled",
+        "defaultValueAsJson": null,
+        "description": "Enables CallListening, Capturer will send CallStarted/CallEnded message to CallListen Host:port",
+        "sectionName": "CallListening",
+        "encrypted": false,
+        "rules": null
+    },
+    "CallListenHost": {
+        "configValueType": "STRING",
+        "configValueCount": "SINGLE",
+        "displayName": "Call Listen Host",
+        "defaultValueAsJson": "\"127.0.0.1\"",
+        "description": "CallListenHost, VoiceServer Listen IP, Capturer will send CallStarted/CallEnded message to CallListen Host:port",
+        "sectionName": "CallListening",
+        "encrypted": false,
+        "rules": "${CallListenHost} != null and ${CallListenHost}.bytes.length<255"
+    },
+    "callListenPort": {
+        "configValueType": "LONG",
+        "configValueCount": "SINGLE",
+        "displayName": "Call Listen Port",
+        "defaultValueAsJson": "28008",
+        "description": "CallListenPort VoiceServer Listen Port, Capturer will send CallStarted/CallEnded message to CallListen Host:port",
+        "sectionName": "CallListening",
+        "encrypted": false,
+        "rules": "${callListenPort} != null and ${callListenPort}>0 and ${callListenPort}<65535"
+    },
+    "callListeningGatewayList": {
+        "configValueType": "STRING",
+        "configValueCount": "LIST",
+        "displayName": "Call Listen Port",
+        "defaultValueAsJson": null,
+        "description": "callListeningGatewayList skip CTI Lookup and Extension Lookup for IP List",
+        "sectionName": "CallListening",
+        "encrypted": false,
+        "rules": "${callListeningGatewayList} matches '^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)(\.(?!$)|$)){4}$'"
+    }
+}
