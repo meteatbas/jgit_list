@@ -41,28 +41,3 @@ SELECT s.name,
        ep1.resource_create_date,
        r.resource_group_id,
        r.group_name
-
-FROM evaluator ev,
-     eva_date_dimension dt,
-     evaluation_process ep
-
-         LEFT OUTER JOIN subject s ON (s.id = ep.subject_id)
-         LEFT OUTER JOIN process_template pt ON (pt.id = ep.process_template_id),
-     evaluation_form ef
-         RIGHT OUTER JOIN resource r ON (ef.id = r.evaluation_form_id)
-         LEFT OUTER JOIN meta_data_type mt1 ON (mt1.meta_key = ef.evaluation_result_meta_data)
-         LEFT OUTER JOIN meta_data_type mt2 ON (mt2.meta_key = ef.evaluation_reason_meta_data)
-         RIGHT OUTER JOIN dbo.resource ep1 ON (ef.id = ep1.evaluation_form_id)
-
-
-WHERE (ep.id = ef.evaluation_process_id
-    AND ev.id = ef.evaluator_id
-    AND ef.primary_resource_embedded_id = r.embedded_id
-    AND dt.id = ef.evaluation_date_dim_id
-    AND ef.primary_resource_embedded_id = ep1.embedded_id)
-    AND ((pt.name = 'Inbound Degerlendirme Süreci'
-    AND dt.eva_year = 2022
-    AND dt.eva_month_name_tr = 'Ocak'
-    AND ef.status = 'RELEASED'
-    AND s.name
-    IN ('142 142', '1001 1001')))
