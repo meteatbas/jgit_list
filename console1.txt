@@ -2,7 +2,7 @@ SELECT s.name,
        s.identifier,
        s.user_id,
        ep.min_score,
-       ep.max_score,
+       ep.max_score,dsffds
        ep.mean_score,
        ep.evaluation_count,
        ef.form_score,
