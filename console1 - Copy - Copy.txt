@@ -3,7 +3,7 @@ SELECT s.name,
        s.user_id,
        ep.min_score,
        ep.max_score,
-       ep.mean_score,
+       ep.mean_score,dddd
        ep.evaluation_count,
        ef.form_score,
        ev.email,
