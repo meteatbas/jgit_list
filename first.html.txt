@@ -1,0 +1,18 @@
+<<<<<<< master
+<<<<<<< changes
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+laylayllomdddbb
+>>>>>>> 1e42358 dd
+=======
+laylayllomd
+>>>>>>> e8c66b5 dd
+>>>>>>> d863db828026fa6f170ae5c621a812da0892d2fc
+=======
+laylayllomdddbb
+>>>>>>> 1e42358 dd
+>>>>>>> 63d2090e412fe993efc5ae66fccc166201c71914
+=======
+>>>>>>> ed962a8 dd
+gfdgfdfdg
